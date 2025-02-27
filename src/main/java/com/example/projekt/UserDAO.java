@@ -9,7 +9,7 @@ public class UserDAO {
 
     public boolean validateUser(String username, String password) {
         String query = "SELECT * FROM User WHERE Username = ? AND Password = ?";
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = com.example.projekt.DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, username);

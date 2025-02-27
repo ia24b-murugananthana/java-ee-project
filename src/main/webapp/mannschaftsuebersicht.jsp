@@ -1,66 +1,33 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<html>
+<!DOCTYPE html>
+<html lang="de">
 <head>
-    <title>Mannschaftsübersicht</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: white;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-
-        .team-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            background: #007bff;
-            color: white;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .team-button:hover {
-            background: #0056b3;
-        }
-        .login-link {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            text-decoration: none;
-            font-size: 16px;
-            color: white;
-            background: #007bff;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-        .login-link:hover {
-            background: #0056b3;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mannschaftsauswahl</title>
+    <link rel="stylesheet" type="text/css" href="mannschaftsuebersicht.css">
 </head>
 <body>
 
-<a href="login.jsp" class="login-link">Abmelden</a>
+<div class="main-container">
+    <h1>Wählen Sie eine Mannschaft</h1>
+    <div class="team-selection">
+        <!-- FC Barcelona Container mit Blau als Hintergrund -->
+        <a href="teamServlet?teamId=1" class="team-card barcelona">
+            <div class="team-logo">
+                <img src="images/barcelona-logo.png" alt="FC Barcelona Logo">
+            </div>
+            <div class="team-name">FC Barcelona</div>
+        </a>
 
-<div class="container">
-    <h1>Mannschaftsübersicht</h1>
-
-    <div class="teams">
-        <div class="team">
-            <a href="barca.jsp" class="team-button">FC Barcelona</a>
-        </div>
-        <div class="team">
-            <a href="miami.jsp" class="team-button">Inter Miami</a>
-        </div>
+        <!-- FC Liverpool Container mit Rot als Hintergrund -->
+        <a href="teamServlet?teamId=2" class="team-card liverpool">
+            <div class="team-logo">
+                <img src="images/liverpool-logo.png" alt="FC Liverpool Logo">
+            </div>
+            <div class="team-name">FC Liverpool</div>
+        </a>
     </div>
 </div>
 

@@ -1,0 +1,98 @@
+/* Grundlegende Layout-Einstellungen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0b0c10;
+    color: #fff;
+    line-height: 1.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 18px;
+    text-align: center;
+}
+
+.main-container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 0;
+    position: absolute;
+    top: 10%;
+}
+
+
+.team-selection {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 20px;
+}
+
+.team-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 10px;
+    width: 45%;
+    height: 350px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-card .team-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 10px;
+}
+
+/* FC Barcelona Container - Blau */
+.team-card.barcelona {
+    background-color: #0066cc;
+}
+
+.team-card.barcelona:hover {
+    background-color: #004d99; /* Etwas dunkler beim Hover */
+}
+
+/* FC Liverpool Container - Rot */
+.team-card.liverpool {
+    background-color: #d32f2f;
+}
+
+.team-card.liverpool:hover {
+    background-color: #b71c1c; /* Etwas dunkler beim Hover */
+}
+
+/* Verein Wappen */
+.team-logo img {
+    width: 150px;  /* Größere Bilder */
+    height: 150px; /* Größere Bilder */
+    object-fit: contain; /* Verhindert Verzerrung */
+    margin-bottom: 10px; /* Abstand zwischen Wappen und Mannschaftsname */
+}
+
+/* Hover-Effekte für die Container */
+.team-card:hover .team-name {
+    color: #ffdf00; /* Wenn man über den Container fährt, ändert sich die Textfarbe */
+}
