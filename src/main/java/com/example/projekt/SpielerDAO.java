@@ -6,44 +6,51 @@ import java.util.List;
 
 public class SpielerDAO {
 
-
-    public List<Spieler> getSpielerByTeamId(String teamId) {
+    // Vorhandene Methode zum Abrufen der Spieler nach Teamname
+    public List<Spieler> getSpielerByTeam(String teamName) throws SQLException {
         List<Spieler> spielerListe = new ArrayList<>();
-        String query = "SELECT SpielerID, Vorname, Name, Position, Trikotnummer, Verletzt, Mannschaft.Name AS Mannschaft " +
+        String query = "SELECT Spieler.SpielerID, Spieler.Vorname, Spieler.Name AS SpielerName, Spieler.Position, " +
+                "Spieler.Trikotnummer, Spieler.Verletzt, Mannschaft.Name AS MannschaftName " +
                 "FROM Spieler " +
-                "JOIN Mannschaft ON Spieler.MannschaftID = Mannschaft.MannschaftID";
+                "JOIN Mannschaft ON Spieler.MannschaftID = Mannschaft.MannschaftID " +
+                "WHERE Mannschaft.Name = ?"; // Filter nach TeamName
 
-
-        if (teamId != null && !teamId.isEmpty()) {
-            query += " WHERE Mannschaft.MannschaftID = ?";
-        }
-
-        try (Connection connection = com.example.projekt.DatabaseConnection.getConnection();
+        try (Connection connection = DatabaseConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
-
-            if (teamId != null && !teamId.isEmpty()) {
-                preparedStatement.setInt(1, Integer.parseInt(teamId));
-            }
+            preparedStatement.setString(1, teamName); // Teamname als Parameter setzen
 
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                // Ergebnisse verarbeiten und in eine Liste von Spielern speichern
                 while (resultSet.next()) {
                     int spielerID = resultSet.getInt("SpielerID");
                     String vorname = resultSet.getString("Vorname");
-                    String name = resultSet.getString("Name");
+                    String name = resultSet.getString("SpielerName");
                     String position = resultSet.getString("Position");
                     int trikotnummer = resultSet.getInt("Trikotnummer");
                     boolean verletzt = resultSet.getBoolean("Verletzt");
-                    String mannschaft = resultSet.getString("Mannschaft");
+                    String mannschaft = resultSet.getString("MannschaftName");
 
                     Spieler spieler = new Spieler(spielerID, vorname, name, position, trikotnummer, verletzt, mannschaft);
                     spielerListe.add(spieler);
                 }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return spielerListe;
+    }
+
+    // Neue Methode zum Löschen eines Spielers
+    public boolean deleteSpieler(int spielerID) throws SQLException {
+        String query = "DELETE FROM Spieler WHERE SpielerID = ?";
+
+        try (Connection connection = DatabaseConnection.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, spielerID); // Setzt die SpielerID als Parameter
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            // Wenn rowsAffected > 0, bedeutet es, dass der Spieler erfolgreich gelöscht wurde
+            return rowsAffected > 0;
+        }
     }
 }
