@@ -1,0 +1,139 @@
+/* mannschaftsuebersicht.css */
+
+/* Allgemeine Stile */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Team-Auswahl */
+.team-selection {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    animation: slideInUp 1s ease-in-out;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.team-logo img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-logo img {
+    transform: scale(1.1);
+}
+
+.team-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* FC Barcelona spezifische Stile */
+.barcelona {
+    background: linear-gradient(135deg, rgba(0, 74, 173, 0.8), rgba(203, 108, 230, 0.8));
+}
+
+.barcelona:hover {
+    background: linear-gradient(135deg, rgba(0, 74, 173, 1), rgba(203, 108, 230, 1));
+}
+
+/* FC Liverpool spezifische Stile */
+.liverpool {
+    background: linear-gradient(135deg, rgba(200, 16, 46, 0.8), rgba(255, 99, 71, 0.8));
+}
+
+.liverpool:hover {
+    background: linear-gradient(135deg, rgba(200, 16, 46, 1), rgba(255, 99, 71, 1));
+}
+
+/* Inter Miami spezifische Stile */
+.miami {
+    background: linear-gradient(135deg, rgba(0, 94, 140, 0.9), rgba(255, 20, 147, 0.9)); /* Rosa und Blau */
+}
+
+.miami:hover {
+    background: linear-gradient(135deg, rgba(0, 94, 140, 1), rgba(255, 20, 147, 1)); /* Hover-Effekt */
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-selection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        width: 80%;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}

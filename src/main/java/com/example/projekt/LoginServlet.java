@@ -1,5 +1,6 @@
 package com.example.projekt;
 
+import com.example.projekt.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("username", username);
             response.sendRedirect("mannschaftsuebersicht.jsp");
         } else {
-            response.sendRedirect("login.jsp?error=true");
+            response.sendRedirect("index.jsp?error=true");
         }
     }
 }
