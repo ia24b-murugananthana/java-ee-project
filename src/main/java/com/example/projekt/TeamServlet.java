@@ -15,10 +15,11 @@ public class TeamServlet extends HttpServlet {
 
         // Weiterleitung zur entsprechenden Spieler-Seite
         if ("1".equals(teamId)) {
-            response.sendRedirect("spielerServlet?team=FC%20Barcelona" +
-                    "\n"); // FC Barcelona
+            response.sendRedirect("spielerServlet?team=FC%20Barcelona"); // FC Barcelona
         } else if ("2".equals(teamId)) {
             response.sendRedirect("spielerServlet?team=FC%20Liverpool"); // FC Liverpool
+        } else if ("3".equals(teamId)) {
+            response.sendRedirect("spielerServlet?team=Inter%20Miami"); // Inter Miami
         }
     }
 }

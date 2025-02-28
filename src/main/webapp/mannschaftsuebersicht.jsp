@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mannschaftsauswahl</title>
     <link rel="stylesheet" type="text/css" href="mannschaftsuebersicht.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="main-container">
     <h1>Wählen Sie eine Mannschaft</h1>
     <div class="team-selection">
-        <!-- FC Barcelona Container mit Blau als Hintergrund -->
+        <!-- FC Barcelona Container -->
         <a href="teamServlet?teamId=1" class="team-card barcelona">
             <div class="team-logo">
                 <img src="images/barcelona-logo.png" alt="FC Barcelona Logo">
@@ -21,12 +22,20 @@
             <div class="team-name">FC Barcelona</div>
         </a>
 
-        <!-- FC Liverpool Container mit Rot als Hintergrund -->
+        <!-- FC Liverpool Container -->
         <a href="teamServlet?teamId=2" class="team-card liverpool">
             <div class="team-logo">
                 <img src="images/liverpool-logo.png" alt="FC Liverpool Logo">
             </div>
             <div class="team-name">FC Liverpool</div>
+        </a>
+
+        <!-- Inter Miami Container -->
+        <a href="teamServlet?teamId=3" class="team-card miami">
+            <div class="team-logo">
+                <img src="images/inter-miami-logo.png" alt="Inter Miami Logo">
+            </div>
+            <div class="team-name">Inter Miami</div>
         </a>
     </div>
 </div>

@@ -1,99 +1,139 @@
-/* Grundlegende Layout-Einstellungen */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* mannschaftsuebersicht.css */
 
+/* Allgemeine Stile */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #0b0c10;
-    color: #fff;
-    line-height: 1.8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-size: 18px;
-    text-align: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .main-container {
-    width: 80%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
 }
 
 h1 {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 0;
-    position: absolute;
-    top: 10%;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-
+/* Team-Auswahl */
 .team-selection {
     display: flex;
-    justify-content: space-between;
-    width: 80%;
-    gap: 20px;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
-
 
 .team-card {
-    display: block;
-    text-decoration: none;
-    border-radius: 10px;
-    width: 45%;
-    height: 350px;
-    text-align: center;
-    justify-content: center;
     display: flex;
-    align-items: center;
     flex-direction: column;
-    transition: background-color 0.3s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    animation: slideInUp 1s ease-in-out;
 }
 
-.team-card .team-name {
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.team-logo img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-logo img {
+    transform: scale(1.1);
+}
+
+.team-name {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
-    margin-top: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* FC Barcelona Container - Blau */
-.team-card.barcelona {
-    background-color: #0066cc;
+/* FC Barcelona spezifische Stile */
+.barcelona {
+    background: linear-gradient(135deg, rgba(0, 74, 173, 0.8), rgba(203, 108, 230, 0.8));
 }
 
-.team-card.barcelona:hover {
-    background-color: #004d99; /* Etwas dunkler beim Hover */
+.barcelona:hover {
+    background: linear-gradient(135deg, rgba(0, 74, 173, 1), rgba(203, 108, 230, 1));
 }
 
-/* FC Liverpool Container - Rot */
-.team-card.liverpool {
-    background-color: #d32f2f;
+/* FC Liverpool spezifische Stile */
+.liverpool {
+    background: linear-gradient(135deg, rgba(200, 16, 46, 0.8), rgba(255, 99, 71, 0.8));
 }
 
-.team-card.liverpool:hover {
-    background-color: #b71c1c; /* Etwas dunkler beim Hover */
+.liverpool:hover {
+    background: linear-gradient(135deg, rgba(200, 16, 46, 1), rgba(255, 99, 71, 1));
 }
 
-/* Verein Wappen */
-.team-logo img {
-    width: 150px;  /* Größere Bilder */
-    height: 150px; /* Größere Bilder */
-    object-fit: contain; /* Verhindert Verzerrung */
-    margin-bottom: 10px; /* Abstand zwischen Wappen und Mannschaftsname */
+/* Inter Miami spezifische Stile */
+.miami {
+    background: linear-gradient(135deg, rgba(0, 94, 140, 0.9), rgba(255, 20, 147, 0.9)); /* Rosa und Blau */
 }
 
-/* Hover-Effekte für die Container */
-.team-card:hover .team-name {
-    color: #ffdf00; /* Wenn man über den Container fährt, ändert sich die Textfarbe */
+.miami:hover {
+    background: linear-gradient(135deg, rgba(0, 94, 140, 1), rgba(255, 20, 147, 1)); /* Hover-Effekt */
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team-selection {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-card {
+        width: 80%;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }

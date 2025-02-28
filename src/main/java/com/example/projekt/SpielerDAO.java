@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SpielerDAO {
 
-    // Vorhandene Methode zum Abrufen der Spieler nach Teamname
+    // Methode zum Abrufen der Spieler nach Teamname
     public List<Spieler> getSpielerByTeam(String teamName) throws SQLException {
         List<Spieler> spielerListe = new ArrayList<>();
         String query = "SELECT Spieler.SpielerID, Spieler.Vorname, Spieler.Name AS SpielerName, Spieler.Position, " +
@@ -38,7 +38,7 @@ public class SpielerDAO {
         return spielerListe;
     }
 
-    // Neue Methode zum Löschen eines Spielers
+    // Methode zum Löschen eines Spielers
     public boolean deleteSpieler(int spielerID) throws SQLException {
         String query = "DELETE FROM Spieler WHERE SpielerID = ?";
 

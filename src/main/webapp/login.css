@@ -1,106 +1,142 @@
-/* Grundlegende Layout-Einstellungen */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* login.css */
 
+/* Allgemeine Stile */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a; /* Dunkles Grau (leichter als tiefes Schwarz) */
-    color: #fff;
-    line-height: 1.8;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     overflow: hidden;
-    font-size: 18px;
 }
 
-h1, h2, p {
-    margin: 0;
-}
-
-/* Futuristischer Container */
 .login-container {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    padding: 40px 50px;
-    border-radius: 20px;
-    box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.3);
-    width: 600px; /* Container-Breite vergrößert */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Überschrift: Fussballverwaltung */
-h1 {
-    font-size: 3rem;
-    color: #00bfae; /* Helleres Türkis für den Titel */
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: auto; /* Keine feste Höhe, um flexibler zu sein */
-}
-
-/* Untertitel */
-h2 {
-    font-size: 1.4rem;
-    color: #ccc;
-    margin-bottom: 30px;
-}
-
-/* Eingabefelder */
-input {
     width: 100%;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 12px;
-    border: 2px solid #00bfae; /* Türkis für den Rand */
-    font-size: 1.1rem;
-    color: #333;
-    background-color: #f1f1f1;
-    transition: border-color 0.3s, background 0.3s;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Formular */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input {
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1rem;
     outline: none;
+    transition: background 0.3s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 input:focus {
-    border-color: #00bfae; /* Fokus in Türkis für Akzentuierung */
-    background-color: #fff;
+    background: rgba(255, 255, 255, 0.3);
 }
 
-/* Button mit türkisen Akzenten */
 button {
-    width: 100%;
-    padding: 15px;
-    background: #00bfae; /* Türkis für den Button */
+    padding: 12px;
     border: none;
-    color: #fff;
-    font-size: 1.2rem;
+    border-radius: 25px;
+    background: #ff6b6b;
+    color: #ffffff;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 12px;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Normaler Hover-Effekt für den Button */
 button:hover {
-    background: #16a085; /* Etwas dunkleres Türkis beim Hover */
+    background: #ff4757;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Fehleranzeige */
+/* Fehlermeldung */
 .error {
-    color: #e74c3c; /* Rote Farbe für Fehler */
-    background-color: rgba(231, 76, 60, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #e74c3c;
-    font-size: 1.1rem;
-    margin-top: 20px;
+    color: #ff6b6b;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+@media (max-width: 768px) {
+    body {
+        background-color: red;
+    }
 }

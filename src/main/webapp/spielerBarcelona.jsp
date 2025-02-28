@@ -14,7 +14,7 @@
     <header class="header">
         <h1>FC Barcelona - Spieler</h1>
         <div class="header-actions">
-            <a href="login.jsp" class="action-button logout">Abmelden</a>
+            <a href="index.jsp" class="action-button logout">Abmelden</a>
             <a href="mannschaftsuebersicht.jsp" class="action-button team-overview">Mannschaft</a>
             <a href="spielerhinzufuegen.jsp" class="action-button add-player">Spieler Hinzufügen</a>
         </div>
@@ -55,10 +55,11 @@
                             </c:choose>
                         </td>
                         <td>
-                            <form action="spielerServlet" method="POST" class="delete-form">
-                                <input type="hidden" name="spielerID" value="${spieler.spielerID}">
-                                <button type="submit" name="action" value="delete" class="delete-button">Löschen</button>
-                            </form>
+                            <a href="spielerServlet?action=delete&spielerID=${spieler.spielerID}&team=${teamName}"
+                               class="delete-button"
+                               onclick="return confirm('Möchtest du diesen Spieler wirklich löschen?');">
+                                Löschen
+                            </a>
                         </td>
                     </tr>
                 </c:forEach>

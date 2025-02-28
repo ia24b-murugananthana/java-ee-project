@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FC Liverpool - Spieler</title>
-    <link rel="stylesheet" href="spielerLiverpool.css">
+    <title>Inter Miami - Spieler</title>
+    <link rel="stylesheet" href="spielerInterMiami.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="main-container">
     <header class="header">
-        <h1>FC Liverpool - Spieler</h1>
+        <h1>Inter Miami - Spieler</h1>
         <div class="header-actions">
             <a href="index.jsp" class="action-button logout">Abmelden</a>
             <a href="mannschaftsuebersicht.jsp" class="action-button team-overview">Mannschaft</a>
@@ -21,7 +21,6 @@
     </header>
 
     <div class="player-table-container">
-        <!-- Display error message if no players are found -->
         <c:if test="${not empty error}">
             <p class="error-message">${error}</p>
         </c:if>
